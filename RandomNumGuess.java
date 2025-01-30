@@ -4,15 +4,10 @@
 // Language: Java
 // Assignment: NumGuess
 /* Description: A number guessing game that generates a random number from 
-1 to 100. It loops and takes a user's guess. If the user's guess is high or low,
-returns higher or lower,//************************************************************************
-// Author: Benjamin Alva
-// Date: 29 Jan 2025
-// Language: Java
-// Assignment: NumGuess
-/* Description: A number guessing game that loops and takes a user's guess. It returns if the
-   guess is high or low. If it's correct, the game ends and tells the user their guesses.*/
+1 to 100. It loops and takes a user's guess. If the user's guess is not correct it
+returns higher or lower, if correct, it ends the game and returns the # of guesses*/
 //************************************************************************
+
 
 import java.util.Scanner;
 import java.util.Random;
