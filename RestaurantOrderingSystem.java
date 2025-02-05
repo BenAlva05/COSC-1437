@@ -48,6 +48,7 @@ public class RestaurantOrderingSystem {
         return price;
     }
 
+  
     // Return the cost of the order
     private static String printReceipt(double total) {
         return String.format("%nOrder placed! Your total is: $%.2f" +
@@ -66,7 +67,6 @@ public class RestaurantOrderingSystem {
         double price = 0;
         double itemPrice;
 
-        // Introduce program
         System.out.println("Welcome to Benjamin's Restaurant\n");
 
         while (!exit) {
@@ -82,7 +82,7 @@ public class RestaurantOrderingSystem {
                 exit = true;
             }
 
-            //Grab the price, add to total
+            // Grab the price, add to total
             else {
                 itemPrice = addItemToOrder(menuSelection, price);
                 total += itemPrice;
