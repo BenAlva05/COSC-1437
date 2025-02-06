@@ -7,7 +7,8 @@
                 order and view the total cost. */
 //************************************************************************
 
-// Import Scanner library
+// Import libraries
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 
@@ -16,23 +17,25 @@ public class RestaurantOrderingSystem {
 
     // Display all the food choices and option to place order
     private static String displayMenu() {
+        // Declare variable
         String menu;
 
-        menu = "\nPlease choose and item from the menu: \n" +
-                "1. Puffy Tacos - $5.99\n" +
-                "2. Fajita Nachos - $8.75\n" +
-                "3. Chicken Tortilla Soup - $10.95\n" +
-                "4. Drink - $3.50\n" +
-                "5. Place Order";
+        menu = """
+                
+                Please choose an item from the menu:\s
+                1. Puffy Tacos - $5.99
+                2. Fajita Nachos - $8.75
+                3. Chicken Tortilla Soup - $10.95
+                4. Drink - $3.50
+                5. Place Order""";
+
         return menu;
     }
 
 
-    /* When a user picks an option, return the price and add it to the
-    balance */
+    // return the price to the matching user selection
     private static double addItemToOrder(int menuSelection,
                                          double price) {
-
         if (menuSelection == 1) {
             price = 5.99;
         }
@@ -48,47 +51,54 @@ public class RestaurantOrderingSystem {
         return price;
     }
 
-  
+
     // Return the cost of the order
-    private static String printReceipt(double total) {
-        return String.format("%nOrder placed! Your total is: $%.2f" +
-                "%nThank you for choosing Benjamin's Restaurant!%n"
-                , total);
+    private static String printReceipt(String total) {
+        String receipt;
+
+        receipt = "\nOrder placed! Your total is: " + total +
+                "\nThank you for choosing Benjamin's Restaurant\n";
+
+        return receipt;
 
     }
 
 
     public static void main(String[] args) {
-        // Declare variables
-        boolean exit = false;
+        // Declare local variables
+        NumberFormat currFormat = NumberFormat.getCurrencyInstance();
         Scanner scanner = new Scanner(System.in);
+        boolean exit = false;
         int menuSelection;
         double total = 0;
         double price = 0;
-        double itemPrice;
 
-        System.out.println("Welcome to Benjamin's Restaurant\n");
+        // Introduce program
+        System.out.println("Welcome to Benjamin's Restaurant");
 
+        // Loop until exit is true
         while (!exit) {
             // Display menu and grab user's selection
             System.out.print(displayMenu());
             System.out.print("\nEnter your choice: ");
             menuSelection = scanner.nextInt();
 
-            // If user chooses 5, display total and exit
-            if (menuSelection == 5) {
-                System.out.println(printReceipt(total));
-                scanner.close();
-                exit = true;
+            // Get the price, add to total
+            if (menuSelection != 5) {
+                price = addItemToOrder(menuSelection, price);
+                total += price;
+
+                // Tell user their current total
+                System.out.println("Item added to your order. " +
+                        "Current total : " + currFormat.format(total));
             }
 
-            // Grab the price, add to total
-            else {
-                itemPrice = addItemToOrder(menuSelection, price);
-                total += itemPrice;
+            else { // If user chooses 5, display total and exit
+                System.out.println(printReceipt
+                        (currFormat.format(total)));
+                scanner.close();
+                exit = true;
 
-                System.out.printf("Item added to your order. " +
-                        "Current total : $%.2f%n", total);
             }
         }
     }
