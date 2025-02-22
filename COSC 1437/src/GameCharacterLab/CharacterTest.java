@@ -1,4 +1,3 @@
-package GameCharacterLab;
 
 //************************************************************************
 // Author: Benjamin Alva
@@ -8,6 +7,8 @@ package GameCharacterLab;
 /* Description: A driver program that tests the methods and overrides of
     *               the Character class and prints the results*/
 //************************************************************************
+
+package GameCharacterLab;
 
 public class CharacterTest {
     public static void main(String[] args) {
@@ -35,7 +36,7 @@ public class CharacterTest {
                 + char2);
 
 
-        // Parameterized Constructor with invalid data
+        // Parameterized Constructor with invalid data output
         char3 = new Character(-50.0, -1, "",
                 "");
         System.out.println("Parameterized Constructor with invalid data: "

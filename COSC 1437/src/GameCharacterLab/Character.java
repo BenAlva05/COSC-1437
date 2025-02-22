@@ -24,7 +24,7 @@ public class Character {
     private int level;
     private String name;
     private String type;
-    int result;
+    protected int result;
 
 
     /**
@@ -37,6 +37,7 @@ public class Character {
         level = 1;
         healthPoints = 100.0;
     }
+
 
     /**
      * Parameterized Constructor
@@ -101,6 +102,7 @@ public class Character {
         }
     }
 
+
     /**
      * @return the level of the character
      */
@@ -124,6 +126,7 @@ public class Character {
         }
     }
 
+
     /**
      * @return the name of the character
      */
@@ -146,6 +149,7 @@ public class Character {
             this.name = "Unknown";
         }
     }
+
 
     /**
      * @return the type of the character
