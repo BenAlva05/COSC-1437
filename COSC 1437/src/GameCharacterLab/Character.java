@@ -24,6 +24,7 @@ public class Character {
     private int level;
     private String name;
     private String type;
+    int result;
 
 
     /**
@@ -94,7 +95,8 @@ public class Character {
     public void setHealthPoints(double healthPoints) {
         if (healthPoints > 0.0) {
             this.healthPoints = healthPoints;
-        } else {
+        }
+        else {
             this.healthPoints = 100.0;
         }
     }
@@ -116,7 +118,8 @@ public class Character {
     public void setLevel(int level) {
         if (level > 0) {
             this.level = level;
-        } else {
+        }
+        else {
             this.level = 1;
         }
     }
@@ -138,7 +141,8 @@ public class Character {
     public void setName(String name) {
         if (name != null && !name.isEmpty()) {
             this.name = name;
-        } else {
+        }
+        else {
             this.name = "Unknown";
         }
     }
@@ -160,7 +164,8 @@ public class Character {
     public void setType(String type) {
         if (type != null && !type.isEmpty()) {
             this.type = type;
-        } else {
+        }
+        else {
             this.type = "Unknown";
         }
     }
@@ -206,7 +211,7 @@ public class Character {
      */
     @Override
     public int hashCode() {
-        int result = 31;
+        result = 31;
         result = 31 * result + name.hashCode();
         result = 31 * result + type.hashCode();
         result = 31 * result + Integer.hashCode(level);
